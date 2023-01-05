@@ -1,4 +1,4 @@
-<h1>Latest News</h1>
+{% load pagination_tags %}
 
 <ul>
     {% for item in news_items %}
@@ -8,3 +8,20 @@
     </li>
     {% endfor %}
 </ul>
+
+{% paginate %}
+
+
+<form method="get" action="">
+    <label for="type">Filter by type:</label>
+    <select name="type" id="type">
+        <option value="">All</option>
+        <option value="story">Story</option>
+        <option value="comment">Comment</option>
+        <option value="poll">Poll</option>
+        <option value="pollopt">Poll Option</option>
+    </select>
+    <label for="search">Search:</label>
+    <input type="text" name="search" id="search">
+    <button type="submit">Apply</button>
+</form>

@@ -40,8 +40,9 @@ INSTALLED_APPS = [
     #3rd Party Apps
     'items',
     'rest_framework',
-    # 'django_celery_beat',
+    'django_celery_beat',
     'celery',
+    'django_pagination_bootstrap',
 ]
 
 MIDDLEWARE = [
