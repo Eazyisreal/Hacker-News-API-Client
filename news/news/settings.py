@@ -40,6 +40,8 @@ INSTALLED_APPS = [
     #3rd Party Apps
     'items',
     'rest_framework',
+    # 'django_celery_beat',
+    'celery',
 ]
 
 MIDDLEWARE = [
@@ -53,6 +55,8 @@ MIDDLEWARE = [
 ]
 
 ROOT_URLCONF = 'news.urls'
+
+CELERY_BROKER_URL = 'memory://'
 
 TEMPLATES = [
     {
