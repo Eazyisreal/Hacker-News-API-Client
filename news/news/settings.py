@@ -42,8 +42,8 @@ INSTALLED_APPS = [
     'rest_framework',
     'debug_toolbar',
     # 'django_drf_filepond',
-    # 'django_celery_beat',
-    # 'celery',
+    'django_celery_beat',
+    'celery',
     # 'django_pagination_bootstrap',
 ]
 
