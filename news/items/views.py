@@ -23,7 +23,7 @@ def news_list(request):
         news_items = News.objects.all().order_by('-created_at')
 
     # Use Paginator to paginate the news items
-    paginator = Paginator(news_items, 10)  # Show 10 news items per page
+    paginator = Paginator(news_items, 5)  # Show 5 news items per page
     page_number = request.GET.get('page')
     page_obj = paginator.get_page(page_number)
 

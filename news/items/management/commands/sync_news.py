@@ -32,12 +32,10 @@ class Command(BaseCommand):
             id=news_item_data['id'],
             title=news_item_data['title'],
             url=url,
-            # created_at=created_at,
             type=news_item_data['type'],
             tz = pytz.timezone('America/New_York')
             created_at = tz.localize(created_at)
-            # news_item_data = fetch_news_item_data(news_item_id)
-            # created_at = datetime.datetime.fromtimestamp(news_item_data['time'])
+           
         )
         news_item.save()
 
