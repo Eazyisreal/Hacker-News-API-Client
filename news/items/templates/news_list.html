@@ -1,4 +1,4 @@
-{% comment %} 
+
 <h1> Latest News</h1>
 {% load pagination_tags %}
 <form method="get" action="">
@@ -26,11 +26,7 @@
 {% paginate %}
 
 
- {% endcomment %}
-
-
  
-
 {% for news_item in page_obj %}
 <h2>{{ news_item.title }}</h2>
 <p>{{ news_item.url }}</p>
@@ -45,3 +41,4 @@
 {% if page_obj.has_next %}
 <a href="?page={{ page_obj.next_page_number }}">Next</a>
 {% endif %}
+
