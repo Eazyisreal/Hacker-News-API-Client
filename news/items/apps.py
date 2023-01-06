@@ -11,7 +11,7 @@ from django.conf import settings
 from .tasks import sync_news
 
 
-class MyAppConfig(AppConfig):
+class ItemsConfig(AppConfig):
     default_auto_field = 'django.db.models.BigAutoField'
     name = 'items'
 

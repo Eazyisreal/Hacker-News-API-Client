@@ -22,11 +22,11 @@ def sync_news():
         item_data = item_response.json()
 
         # Create a NewsItem object with the item data
-        # news_item = News(
-        #     title=item_data['title'],
-        #     url=item_data['url'],
-        #     created_at=timezone.datetime.fromtimestamp(item_data['time']),
-        #     type=item_data['type'],
-        # )
-        # news_item.save()
+        news_item = News(
+            title=item_data['title'],
+            url=item_data['url'],
+            created_at=timezone.datetime.fromtimestamp(item_data['time']),
+            type=item_data['type'],
+        )
+        news_item.save()
 

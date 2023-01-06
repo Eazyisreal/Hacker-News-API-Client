@@ -20,7 +20,7 @@ router.register(r'news', viewsets.NewsViewSet)
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('news/', include ('items.urls')),
+    path('', include ('items.urls')),
     path('api/', include(router.urls)),
     # Other URL patterns...
 ]
