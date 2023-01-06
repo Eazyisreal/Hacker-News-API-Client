@@ -24,16 +24,6 @@ class Command(BaseCommand):
             url = None
             if 'url' in news_item_data:
                 url = news_item_data['url']
-
-            # Create a new NewsItem object with the data
-            # news_item = News(
-            #     id=news_item_data['id'],
-            #     title=news_item_data['title'],
-            #     url=url,
-            #     created_at=news_item_data['time'],
-            #     type=news_item_data['type'],
-            # )
-            # news_item.save()
 # Convert the value to the correct format before saving it
         created_at = datetime.datetime.fromtimestamp(news_item_data['time'])
         news_item = News(

@@ -1,24 +1,6 @@
-# from rest_framework import serializers
-# from rest_framework import viewsets
-# from .serializers import NewsSerializer
-# from .models import News
-# from .import views
-
-# class NewsViewSet(viewsets.ModelViewSet):
-#     queryset = News.objects.all().order_by('-item_id')
-#     serializer_class = NewsSerializer
-
-# class NewsSerializer(serializers.ModelSerializer):
-#     class Meta:
-#         model = News
-#         fields = ['item_id', 'item_type', 'title', 'url', 'body']
-
 
 from rest_framework import serializers
 from .models import News
-
-
-
 
 class NewsSerializer(serializers.ModelSerializer):
     class Meta:

@@ -41,10 +41,9 @@ INSTALLED_APPS = [
     'items',
     'rest_framework',
     'debug_toolbar',
-    # 'django_drf_filepond',
     'django_celery_beat',
     'celery',
-    # 'django_pagination_bootstrap',
+    'django_pagination_bootstrap',
 ]
 
 MIDDLEWARE = [
