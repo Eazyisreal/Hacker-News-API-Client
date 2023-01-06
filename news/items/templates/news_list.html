@@ -1,19 +1,6 @@
-
+{% comment %} 
 <h1> Latest News</h1>
 {% load pagination_tags %}
-
-<ul>
-    {% for item in news_items %}
-    <li>
-        <a href="{{ item.url }}">{{ item.title }}</a>
-        <p>{{ item.body|truncatewords:30 }}</p>
-    </li>
-    {% endfor %}
-</ul>
-
-{% paginate %}
-
-
 <form method="get" action="">
     <label for="type">Filter by type:</label>
     <select name="type" id="type">
@@ -27,3 +14,34 @@
     <input type="text" name="search" id="search">
     <button type="submit">Apply</button>
 </form>
+<ul>
+    {% for item in news_items %}
+    <li>
+        <a href="{{ item.url }}">{{ item.title }}</a>
+        <p>{{ item.body|truncatewords:30 }}</p>
+    </li>
+    {% endfor %}
+</ul>
+
+{% paginate %}
+
+
+ {% endcomment %}
+
+
+ 
+
+{% for news_item in page_obj %}
+<h2>{{ news_item.title }}</h2>
+<p>{{ news_item.url }}</p>
+<p>{{ news_item.created_at }}</p>
+<p>{{ news_item.type }}</p>
+{% endfor %}
+
+{% if page_obj.has_previous %}
+<a href="?page={{ page_obj.previous_page_number }}">Previous</a>
+{% endif %}
+
+{% if page_obj.has_next %}
+<a href="?page={{ page_obj.next_page_number }}">Next</a>
+{% endif %}

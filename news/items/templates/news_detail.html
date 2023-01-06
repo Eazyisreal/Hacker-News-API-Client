@@ -1,0 +1,13 @@
+
+
+<h2>{{ news_item.title }}</h2>
+<p>{{ news_item.url }}</p>
+<p>{{ news_item.created_at }}</p>
+<p>{{ news_item.type }}</p>
+
+{% for child in children %}
+    <h3>{{ child.title }}</h3>
+    <p>{{ child.url }}</p>
+    <p>{{ child.created_at }}</p>
+    <p>{{ child.type }}</p>
+{% endfor %}

@@ -40,9 +40,11 @@ INSTALLED_APPS = [
     #3rd Party Apps
     'items',
     'rest_framework',
-    'django_celery_beat',
-    'celery',
-    'django_pagination_bootstrap',
+    'debug_toolbar',
+    # 'django_drf_filepond',
+    # 'django_celery_beat',
+    # 'celery',
+    # 'django_pagination_bootstrap',
 ]
 
 MIDDLEWARE = [
@@ -53,11 +55,12 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+    'debug_toolbar.middleware.DebugToolbarMiddleware',
 ]
 
 ROOT_URLCONF = 'news.urls'
 
-CELERY_BROKER_URL = 'memory://'
+# CELERY_BROKER_URL = 'memory://'
 
 TEMPLATES = [
     {
