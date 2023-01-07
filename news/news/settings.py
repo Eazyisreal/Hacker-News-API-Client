@@ -40,7 +40,7 @@ INSTALLED_APPS = [
     #3rd Party Apps
     'items',
     'rest_framework',
-    'debug_toolbar',
+    # 'debug_toolbar',
     'django_celery_beat',
     'celery',
     'django_pagination_bootstrap',
