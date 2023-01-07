@@ -1,19 +1,32 @@
+{% load static %}
 
-<h1> Latest News</h1>
-{% load pagination_tags %}
-<form method="get" action="">
-    <label for="type">Filter by type:</label>
-    <select name="type" id="type">
-        <option value="">All</option>
-        <option value="story">Story</option>
-        <option value="comment">Comment</option>
-        <option value="poll">Poll</option>
-        <option value="pollopt">Poll Option</option>
-    </select>
-    <label for="search">Search:</label>
-    <input type="text" name="search" id="search">
-    <button type="submit">Apply</button>
-</form>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+    <title>News</title>
+</head>
+<body>
+   <div>
+    <h1 class='header'> Latest News</h1>
+    {% load pagination_tags %}
+    <form method="get" action="">
+        <label for="type">Filter by type:</label>
+        <select name="type" id="type">
+            <option value="">All</option>
+            <option value="story">Story</option>
+            <option value="comment">Comment</option>
+            <option value="poll">Poll</option>
+            <option value="pollopt">Poll Option</option>
+        </select>
+        <label for="search">Search:</label>
+        <input type="text" name="search" id="search">
+        <button type="submit">Apply</button>
+    </form>
+    </div>
 <ul>
     {% for item in news_items %}
     <li>
@@ -28,8 +41,8 @@
 
  
 {% for news_item in page_obj %}
-<h2>{{ news_item.title }}</h2>
-<p>{{ news_item.url }}</p>
+<h2 class='news-title'>{{ news_item.title }}</h2>
+<p class='news-url'>{{ news_item.url }}</p>
 <p>{{ news_item.created_at }}</p>
 <p>{{ news_item.type }}</p>
 {% endfor %}
@@ -42,3 +55,5 @@
 <a href="?page={{ page_obj.next_page_number }}">Next</a>
 {% endif %}
 
+</body>
+</html>
