@@ -34,6 +34,7 @@ Getting Started <br>
 
 - Clone the repository: git clone <https://github.com/><your-username>/hacker-news-api-client.git
 - Create a virtual environment and install the dependencies: pip install -r requirements.txt
+- Fetch Latest News from Hacker News Api : python manage.py sync_news
 - Run the development server: python manage.py runserver
 - Open the app in your browser: <http://127.0.0.1:8000/>
 ---------------------------------
