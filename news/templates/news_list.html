@@ -1,0 +1,106 @@
+{% load static %} {% comment %} <!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="{% static 'css/style.css' %}" />
+    <title>News</title>
+  </head>
+  <body>
+    <div>
+      <h1 class="header">Latest News</h1>
+      {% load pagination_tags %}
+      <form method="get" action="">
+        <label for="type">Filter by type:</label>
+        <select name="type" id="type">
+          <option value="">All</option>
+          <option value="story">Story</option>
+          <option value="comment">Comment</option>
+          <option value="poll">Poll</option>
+          <option value="pollopt">Poll Option</option>
+        </select>
+        <label for="search">Search:</label>
+        <input type="text" name="search" id="search" />
+        <button type="submit">Apply</button>
+      </form>
+    </div>
+    <ul>
+      {% for item in news_items %}
+      <li>
+        <a href="{{ item.url }}">{{ item.title }}</a>
+        <p>{{ item.body|truncatewords:30 }}</p>
+      </li>
+      {% endfor %}
+    </ul>
+
+    {% paginate %} {% for news_item in page_obj %}
+    <h2 class="news-title">{{ news_item.title }}</h2>
+    <p class="news-url">{{ news_item.url }}</p>
+    <p>{{ news_item.created_at }}</p>
+    <p>{{ news_item.type }}</p>
+    {% endfor %} {% if page_obj.has_previous %}
+    <a href="?page={{ page_obj.previous_page_number }}">Previous</a>
+    {% endif %} {% if page_obj.has_next %}
+    <a href="?page={{ page_obj.next_page_number }}">Next</a>
+    {% endif %}
+  </body>
+</html>
+{% endcomment %}
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="{% static 'css/style.css' %}" />
+    <title>News</title>
+  </head>
+  <body>
+    <div class="form-container">
+      <h1 class="header">Latest News</h1>
+      {% load pagination_tags %}
+      <form method="get" action="" class="form">
+       <div class='div'>
+        <label for="type" class="form-label">Filter by type:</label>
+        <select name="type" id="type" class="form-select">
+          <option value="">All</option>
+          <option value="story">Story</option>
+          <option value="comment">Comment</option>
+          <option value="poll">Poll</option>
+          <option value="pollopt">Poll Option</option>
+        </select>
+       </div>
+       <div class='div'>
+        <label for="search" class="form-label">Search:</label>
+        <input type="text" name="search" id="search" class="form-input" />
+     </div>
+        <button type="submit" class="form-button">Apply</button>
+      </form>
+    </div>
+   <div class='home' >
+    <ul class="news-list">
+        {% for item in news_items %}
+        <li class="news-item">
+          <a href="{{ item.url }}" class="news-item-link">{{ item.title }}</a>
+          <p class="news-item-description">{{ item.body|truncatewords:30 }}</p>
+        </li>
+        {% endfor %}
+      </ul>
+  
+      {% paginate %} {% for news_item in page_obj %}
+      <h2 class="news-title">{{ news_item.title }}</h2>
+      <p class="news-url">{{ news_item.url }}</p>
+      <p class="news-date">{{ news_item.created_at }}</p>
+      <p class="news-type">{{ news_item.type }}</p>
+      {% endfor %} {% if page_obj.has_previous %}
+      <a href="?page={{ page_obj.previous_page_number }}" class="button"
+        >Previous</a
+      >
+      {% endif %} {% if page_obj.has_next %}
+      <a href="?page={{ page_obj.next_page_number }}" class="button">Next</a>
+      {% endif %}
+   </div>
+  </body>
+</html>
